@@ -5404,33 +5404,72 @@
 
 
 
+            {
+                name: "Spam Gold Swap",
+                description: "Spams gold swap with the selected player continuously at a faster rate",
+                inputs: [{
+                    name: "Player",
+                    type: "options",
+                    options() {
+                        let e = Object.values(document.querySelector("body div[id] > div > div"))[1].children[0]._owner.stateNode;
+                        return new Promise(t => e.props.liveGameController._liveApp ? e.props.liveGameController.getDatabaseVal("c", e => e && t(Object.keys(e))) : t([]))
+                    }
+                }],
+                run: function(e) {
+                    let t = Object.values(document.querySelector("body div[id] > div > div"))[1].children[0]._owner.stateNode;
+            
+                    let isSpamming = false; // Flag to track if spamming is active
+                    let interval = null; // To hold the interval ID
+            
+                    // Function to perform the gold swap
+                    const spamSwap = () => {
+                        t.props.liveGameController.getDatabaseVal("c", a => {
+                            if (a?.[e] && a[e]?.g !== undefined) { // Ensure a[e].g is not undefined
+                                let currentGold = a[e].g; // Get current gold
+                                t.props.liveGameController.setVal({
+                                    path: "c/".concat(t.props.client.name),
+                                    val: {
+                                        b: t.props.client.blook,
+                                        g: currentGold, // Set the gold
+                                        tat: e + ":swap:" + t.state.gold
+                                    }
+                                });
+                                t.setState({
+                                    gold: currentGold,
+                                    gold2: currentGold
+                                });
+                            } else {
+                                console.error(`Gold data for player ${e} is not available at the moment.`);
+                            }
+                        });
+                    };
+            
+                    // Toggle spamming when clicked
+                    if (!isSpamming) {
+                        // Start spamming the selected player as fast as possible (every 100ms)
+                        interval = setInterval(spamSwap, 100);
+                        isSpamming = true; // Mark as spamming
+                    } else {
+                        // Stop the spamming if it's already active
+                        clearInterval(interval); // Stop spamming
+                        isSpamming = false; // Mark as not spamming
+                        console.log("Spamming stopped.");
+                    }
+                }
+            },
+            
+            
+            
+            
 
 
 
 
 
-        ],
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    ],
 
 
 
