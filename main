@@ -553,7 +553,7 @@
             }
         }, {
             name: "Percent Auto Answer",
-            description: "Answers questions correctly or incorrectly depending on the goal grade given (Disable and re-enable to update goal)",
+            description: "Answers questions correctly or incorrectly depending on the goal grade given",
             inputs: [{
                 name: "Target Grade",
                 type: "number"
@@ -596,7 +596,7 @@
             }
         }, {
             name: "Use any Banner",
-            description: "Unlocked all banners",
+            description: "Lets you use any banner",
             inputs: [{
                 name: "Banner",
                 type: "options",
@@ -756,7 +756,7 @@
             }
         }, {
             name: "Flood Game",
-            description: "Floods a game with a number of fake accounts",
+            description: "Floods the game with lots of fake players",
             inputs: [{
                 name: "Name",
                 type: "string"
@@ -920,7 +920,7 @@
                     var a, o = i().props.liveGameController._liveGameCode,
                         r = parseInt(t);
                     if (!r) {
-                        alert("You must use a valid number!");
+                        alert("You must use a valid number");
                         return
                     }
                     if (!n.randomNames) var s = e;
@@ -953,7 +953,7 @@
                 }), 200);
             }
         }, {
-            name: "Bypass Filter",
+            name: "Bypass Name Filter",
             description: "Bypasses the name filter",
             inputs: [{
                 name: "Text",
@@ -1073,7 +1073,7 @@
                 })
             }
         }, {
-            name: "Set Custom Blook URL",
+            name: "Set Custom Blook URL [broken]",
             description: "Sets a custom image as your blook.",
             inputs: [{
                 name: "URL",
@@ -1122,7 +1122,7 @@
             }
         }, {
             name: "Set Blook Ad Text Ingame",
-            description: "Sets a load of text as your blook",
+            description: "Sets a lot of text as your blook",
             inputs: [{
                 name: "Text",
                 type: "options",
@@ -1271,7 +1271,7 @@
                 } else alert("This cheat only works on play.blooket.com, opening a new tab."), window.open("https://play.blooket.com/")
             }
         }, {
-            name: "Use any Blook",
+            name: "Unlock all blooks",
             description: "Allows you to play as any blook.",
             run: function() {
                 (() => {
@@ -1315,7 +1315,7 @@
             }
         }, {
             name: "Get More Blooks (Lobby)",
-            description: "Gives you an abundance of custom blooks to try (Some images might be blocked)",
+            description: "Gives you an abundance of custom blooks to try (Some images might be blocked) NOT MADE BY ME",
             run: function() {
                 const containerClass = '_blooksHolder_1bg6w_141';
                 const targetContainer = document.querySelector(`.${containerClass}`);
@@ -1608,7 +1608,7 @@
                 }, e().stateNode.props.liveGameController._liveApp.database().ref(`${e().stateNode.props.liveGameController._liveGameCode}`).on("value", e => {}), s("Lobbychat successfully loaded!"), o.style.wordWrap = "break-word"
             }
         }, {
-            name: "Pin Guesser",
+            name: "Pin Guesser [broken]",
             description: "Brute forces combinations for existing pins",
             run: function() {
                 var e = 0,
@@ -1730,7 +1730,7 @@
                 }).catch(() => alert("There was an error user data!"))
             }
         }, {
-            name: "Sell Duplicate Blooks",
+            name: "Sell All Duplicate Blooks",
             description: "Sell all duplicate blooks leaving you with 1 each",
             run: async function() {
                 let e = document.createElement("iframe");
@@ -2044,8 +2044,8 @@
                 setValForPlayer();
             }
         }, {
-            name: "Send Ad Text",
-            description: "Sends a load of text to another player (This will override your blook!)",
+            name: "Send Alert Text",
+            description: "Sends a ton of text to another player",
             inputs: [{
                 name: "Player",
                 type: "options",
