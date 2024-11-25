@@ -2493,8 +2493,8 @@
                 }), 50))
             }
         }, {
-            name: "Crash Password",
-            description: "Crashes other players when they attempt to hack you",
+            name: "Anti Hack [Crash]",
+            description: "Obliterates other players game when they attempt to hack you",
             type: "toggle",
             enabled: !1,
             data: null,
@@ -2518,7 +2518,7 @@
                 }
             }
         }, {
-            name: "Set Freeze Password",
+            name: "Anti Hack [Freeze]",
             description: "Freezes other players when they attempt to hack you",
             type: "toggle",
             enabled: !1,
@@ -2593,7 +2593,7 @@
                 }
             }
         }, {
-            name: "Set Host Screen Green",
+            name: "Flood hosts screen",
             description: "Makes the whole screen filled with text",
             type: "toggle",
             enabled: !1,
@@ -2665,8 +2665,8 @@
                 })
             }
         }, {
-            name: "Set Password",
-            description: "Sets hacking password",
+            name: "Set Custom Password [Server Sided]",
+            description: "Changes your password to anything [SERVER SIDED]",
             inputs: [{
                 name: "Custom Password",
                 type: "string"
@@ -2798,8 +2798,8 @@
                 setValForPlayer();
             }
         }, {
-            name: "Send Ad Text",
-            description: "Sends a load of text to another player (This will override your blook!)",
+            name: "Send Alert Text",
+            description: "Sends an alert with lots of text",
             inputs: [{
                 name: "Player",
                 type: "options",
@@ -5563,7 +5563,38 @@
 
 
 
-        host: [{
+        host: [
+
+
+{
+    name: "Play Exclusive Gamemode",
+    description: "Play the gamemode exclusive to plus accounts",
+    run: function() {
+        let t = document.createElement("iframe");
+        if (
+            document.body.append(t),
+            window.alert = t.contentWindow.alert.bind(window),
+            window.prompt = t.contentWindow.prompt.bind(window),
+            t.remove(),
+            "/host/settings" != location.pathname
+        )
+            return alert("Run this script on the host settings page");
+
+        let { stateNode: a } = Object.values(
+            (function e(t = document.querySelector("body>div")) {
+                return Object.values(t)[1]?.children?.[0]?._owner.stateNode
+                    ? t
+                    : e(t.querySelector(":scope>div"));
+            })()
+        )[1].children[0]._owner;
+
+        a.setState({
+            settings: {
+                type: "Pirate"
+            }
+        });
+    }
+}, {
             name: "Host Any Gamemode",
             description: "Change the selected gamemode on the host settings page",
             inputs: [{
