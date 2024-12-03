@@ -480,6 +480,14 @@
     }
     document.body.appendChild(_);
     let C = {
+
+
+
+
+
+
+
+
         global: [{
             name: "Auto Answer",
             description: "Toggles auto answer on",
@@ -6003,7 +6011,7 @@
                     fog: !1,
                     dusk: !1,
                     wind: !1,
-                    plow: !1,F
+                    plow: !1,
                     blizzard: !1,
                     force: !1,
                     canada: !1,
