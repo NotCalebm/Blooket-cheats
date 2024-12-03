@@ -290,7 +290,7 @@
             display: "flex",
             flexDirection: "column"
         },
-        innerHTML: '<span style="text-shadow: 1px 1px rgb(0 0 0 / 40%); font-size: 0.8em;">Cheats<sup>v1.3.3</sup></span>'
+        innerHTML: '<span style="text-shadow: 1px 1px rgb(0 0 0 / 40%); font-size: 0.8em;">Cheats<sup>v1.3.4</sup></span>'
     }, l("a", {
         className: "bigButton",
         style: {
@@ -1627,8 +1627,8 @@
                 }, e().stateNode.props.liveGameController._liveApp.database().ref(`${e().stateNode.props.liveGameController._liveGameCode}`).on("value", e => {}), s("Lobbychat successfully loaded!"), o.style.wordWrap = "break-word"
             }
         }, {
-            name: "Pin Guesser",
-            description: "Brute forces combinations for existing pins",
+            name: "Pin Guesser [Broken]",
+            description: "Brute forces combinations for existing pins [Being fixed]",
             run: function() {
                 var e = 0,
                     t = 0,
@@ -5974,8 +5974,8 @@
                 })
             }
         }, {
-            name: "Freeze Host :)",
-            description: "They aint coming back with this one",
+            name: "Freeze Host [buggy]",
+            description: "Freezes the hosts screen (:",
             run: function() {
                 var largeNumber = "99999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999";
                 var t = Object.values(document.querySelector("body div[id] > div > div"))[1].children[0]._owner.stateNode;
@@ -6003,7 +6003,7 @@
                     fog: !1,
                     dusk: !1,
                     wind: !1,
-                    plow: !1,
+                    plow: !1,F
                     blizzard: !1,
                     force: !1,
                     canada: !1,
