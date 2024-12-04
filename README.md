@@ -9,3 +9,7 @@ To use this GUI, go to blooket, go into the game (if using game mods and not som
 # How do I report a bug or make a suggestion?
 
 Any bugs and/or suggestions can be posted in githubs issues tab. Or if you go to nms, you can just tell me.
+
+# Will I get banned on blooket?
+
+In most cases, no, you will not be banned because the gui has a built in Anti Ban that is always on.
