@@ -1239,11 +1239,128 @@
                     val: repeatedText
                 });
             }
+        }, 
+        /* {
+            name: "Remove All Instances Ingame",
+            description: "Removes any instance of your name and data ingame but keeps you playing.",
+            inputs: [],
+            run: (function() {
+                (async () => {
+                    const reactHandler = (e => Object.values(document.querySelector("#app>div>div"))[1].children[0]._owner.stateNode);
+                    let i = document.createElement('iframe');
+                    document.body.append(i);
+                    let alert = i.contentWindow.alert.bind(window);
+                    i.remove();
+        
+                    async function genToken(name) {
+                        const res = await fetch("https://fb.blooket.com/c/firebase/join", {
+                            body: JSON.stringify({
+                                id: reactHandler().props.client.hostId,
+                                name
+                            }),
+                            headers: {
+                                "Content-Type": "application/json"
+                            },
+                            method: "PUT",
+                            credentials: "include"
+                        }).then(e => e.json());
+                        if (!res.success) {
+                            alert("Error: " + res.msg);
+                            return;
+                        }
+                        return res.fbToken;
+                    }
+        
+                    const oldname = reactHandler().props.client.name;  // Get the current name
+                    const olddata = await reactHandler().props.liveGameController.getDatabaseVal(`c/${oldname}`);  // Get the current data associated with the name
+        
+                    // Remove all instances of your name from the game (clear associated data)
+                    await reactHandler().props.liveGameController.removeVal(`c/${oldname}`);  // Remove data from the database
+                    await reactHandler().props.liveGameController.removeVal(`players/${oldname}`); // Optionally remove from players if relevant
+        
+                    // Generate the token to keep you playing, but without assigning a new name
+                    const token = await genToken(oldname);
+                    if (!token) {
+                        return;
+                    }
+        
+                    // Sign in with the token to maintain the game session, but no name reassignment
+                    await reactHandler().props.liveGameController._liveApp.auth().signInWithCustomToken(token);
+                    reactHandler().props.liveGameController._liveApp.auth().onAuthStateChanged(e => {
+                        if (e.uid.split(":")[1] === oldname) {
+                            // No need to reassign any name or data, you're just maintaining session
+                        }
+                    });
+        
+                    // Now you're effectively "removed" from the game (name and data), but still connected
+                    reactHandler().setState({});
+                })();
+            })
+        }, */
+        
+
+// not finished
+       /* {
+            name: "Fake Ban",
+            description: "Makes it look like you got banned",
+            type: "action",
+            run: function() {
+                // Ensure the page is fully covered
+                document.body.style.margin = "0";
+                document.body.style.padding = "0";
+                document.body.style.height = "100vh"; // Full height of the viewport
+                document.body.style.overflow = "hidden"; // Prevent scrolling
+        
+                // Hide all game-related elements (adjust selectors if needed)
+                document.querySelectorAll("canvas, div, img, video, svg").forEach(element => {
+                    element.style.display = "none";
+                });
+        
+                // Create the overlay div
+                const overlay = document.createElement("div");
+                overlay.style.position = "absolute";
+                overlay.style.top = "0";
+                overlay.style.left = "0";
+                overlay.style.width = "100%";
+                overlay.style.height = "100%";
+                overlay.style.background = "url('data:image/webp;base64,UklGRoAQAABXRUJQVlA4IHQQAADwWwCdASraAQoBPm02l0kkIyKhIRYKUIANiWVu+ExdZ/2uCtS/nLOaeNXCTjg132RaY3ndPyd8Plg9iSdKZvPz2N/GTUC9nbu3tnmEe4uYf9L/vfRX7E9GP+68KD7Z/nfYG/of95/3X3VfKF9XekL6yES1MmSky6D6pNPJEhIlJOKMJWlnw3erf4QPtKPpG8M3sQP/81i9JPYk4/5ExX9pfPAyGL+RvaqytUZcfuePaRE9rOtdu2JNynGZxaUNDrPNn1q4Bf7dsSbkjuOPfmre0uSG+ae5lyQ3zT3MuSG+ae6n4NaNJJMiMIIL3o5f5BqIRw6IjNLRQQw+o9IJ9tOEs9zn9rdjWEr6/kw+Z2Ju/Bf1D8cGtJOjDf6FHh02f/1FGtVlsdUW+z8qNNYSwBw0wk4SypyNEvyj1lExogQ1yjZ6IZJOR2fdXwXwO3jx5mrzkk2Lbk42jSY9IoeT8kgtkSmIDqPbHYW1L1OswlgawoURwpHq/ClBHuhXOkk0byicc+d7rhLkuFCBa4mxp2WvLrnmpz1UegifknG1KtLbGjycuMMygzj+MkauntFG8+TRAmtUkVl4TnSScuEDWjSSU0jYAsRh3dq0f7XLxvyWSnemK0nNYwW3hgfwlnSaCdY42jR2bxJunHxWE8zbofjh6KrCq8HMmBHseijpk1L2dj4XhOdJJy4QNaNJJTOcZwjI9LAKMftLF6cWmmLq3/+DEVoLaLJ+m6MHh7c6a7FsMYnSjALFIydbuT8k5NYjq/Ck/iQzQMeRzxWv651EKRe09watPTKDUsCMozpxWzkDyuppJffj+sNeyUwyzFSTKZISdchYoFcbRp7/4bGjycv24pH0hSPYjBBxUPKudTyzsodYrjaOsIw2NHk3RZxYsAYtLiEuULWqKAPS5zA3Ozu7nSSaxF3wutJJwzCG+ae5lyN/JJwlt3H23/Yl3AL/O3YvqSWflo4F/nbsX1JLPy0cC/zt2L6kjjAA/p18i7ej5fNmLFwXa');";
+                overlay.style.backgroundSize = "cover"; // Make the image cover the full screen
+                overlay.style.backgroundPosition = "center"; // Center the image
+                overlay.style.zIndex = "9999"; // Ensure it is above all other content
+        
+                // Add text over the image if needed
+                const message = document.createElement("div");
+                message.innerHTML = "You have been banned!";
+                message.style.position = "absolute";
+                message.style.top = "50%";
+                message.style.left = "50%";
+                message.style.transform = "translate(-50%, -50%)";
+                message.style.fontSize = "30px";
+                message.style.fontFamily = "Arial, sans-serif";
+                message.style.color = "white";
+                message.style.textAlign = "center";
+        
+                // Append the message and overlay to the body
+                overlay.appendChild(message);
+                document.body.appendChild(overlay);
+            }
         },
+        
+        */
+        
+        
+        
+
+        
+        
+        
+        
 
 
 
-
+            // hello skids :)
+            // If you take any of this code
+            // you gay
             {
                 name: "Destroy All",
                 description: "Destroys the game ^W^",
@@ -7098,7 +7215,7 @@
    S(g, _),
    window.addEventListener("keydown", A);
    let x = setInterval(() => {
-       C.alerts[0].connection ? clearInterval(x) : C.alerts[0].connect()
+       C.terminal[0].connection ? clearInterval(x) : C.terminal[0].connect()
    }, 5e3);
    
    function D() {
@@ -7172,6 +7289,6 @@
         }), y.style.opacity = "0.9"), y.style.left = t.x - a.x + (t.width - y.clientWidth) / 2 + "px", y.style.top = t.y - a.y + t.height + "px"))
     }), window.fetch.call = function() {
         if (!arguments[1].includes("s.blooket.com/rc")) return wfcall.apply(this, arguments);
-        C.terminal?.[0].addLog("[ANTI-BAN] The anti cheat attempted to report you, we have stopped the report from being sent.")
+        C.terminal?.[0].addLog("[ANTI-BAN] The anti cheat attempted to report you, the report was blocked and was not sent.")
     }
 })();
