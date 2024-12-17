@@ -3497,7 +3497,25 @@
                     val: !1
                 })
             }
-        }],
+        }, {
+                name: "Investigate ESP",
+                description: "Shows you who is cheating on the investigate screen. Green is clear, and red is cheating.",
+                run: function () {
+                    const stateNode = Object.values(document.querySelector('#app>div>div'))[1].children[0]._owner.stateNode;
+                    let i = document.createElement('iframe');
+                    document.body.append(i);
+                    const alert = i.contentWindow.alert.bind(window);
+                    i.remove();
+                    if (!document.querySelectorAll("[class*='playerContainer']")) {
+                        alert("This must be run on the investigate screen!");
+                    }
+                    Array.from(document.querySelectorAll("[class*='playerContainer']")).forEach(async e => {
+                        const players = await stateNode.props.liveGameController.getDatabaseVal("c");
+                        let p = Object.values(e)?.[0]?.key;
+                        e.style.color = players[p].ic ? "#ff0000" : "#00ff00";
+                    });
+                }
+            } ],
         doom: [{
             name: "Fill Deck",
             description: "Fills your deck with every maxed out card and artifact (Only works on towers page)",
@@ -5677,35 +5695,7 @@
         host: [
 
 
-{
-    name: "Play Exclusive Gamemode",
-    description: "Play the gamemode exclusive to plus accounts",
-    run: function() {
-        let t = document.createElement("iframe");
-        if (
-            document.body.append(t),
-            window.alert = t.contentWindow.alert.bind(window),
-            window.prompt = t.contentWindow.prompt.bind(window),
-            t.remove(),
-            "/host/settings" != location.pathname
-        )
-            return alert("Run this script on the host settings page");
-
-        let { stateNode: a } = Object.values(
-            (function e(t = document.querySelector("body>div")) {
-                return Object.values(t)[1]?.children?.[0]?._owner.stateNode
-                    ? t
-                    : e(t.querySelector(":scope>div"));
-            })()
-        )[1].children[0]._owner;
-
-        a.setState({
-            settings: {
-                type: "Pirate"
-            }
-        });
-    }
-}, {
+ {
             name: "Host Any Gamemode",
             description: "Change the selected gamemode on the host settings page",
             inputs: [{
@@ -6296,15 +6286,10 @@
     experimental: [{
             name: "Anti RPC Ban",
             description: "Experimental method for preventing Remote Procedure Call bans",
-            run: []
+            run: [] }, 
 
 
-
-
-
-
-
-    }, ],
+],
 
 
         settings: [{
@@ -6762,7 +6747,7 @@
                             description: "Simulates you unlocking a pack but isnt real [global]"
                         }, {
                             name: "Added Destroy All",
-                            descrFiption: "Destroys the game lol [global]"
+                            description: "Destroys the game lol [global]"
                         },
                          {
                             name: "FIXED/CHANGED",
