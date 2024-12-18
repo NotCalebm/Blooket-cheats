@@ -23,7 +23,7 @@
     window.fetch.call = function() {
         if (!arguments[1].includes("s.blooket.com/rc")) return wfcall.apply(this, arguments);
     }
-    if (console.log("%cOverpowered Blooket Cheats %c\n	By NotCalebm on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem"), console.log("%c	[!] Version 1.3.5", "color: #0bc2cf; font-size: 1rem"), console.log("%c	If you like the cheats star the github repo!%c  https://github.com/NotCalebm/Blooket-cheats", "color: #ffd000; font-size: 1rem", ""), document.querySelector("script[src*='bfs/index.js']") && !window.clearId) {
+    if (console.log("%cOverpowered Blooket Cheats %c\n	By NotCalebm on GitHub", "color: #0bc2cf; font-size: 3rem", "color: #8000ff; font-size: 1rem"), console.log("%c	[!] Version 3.0 Public", "color: #0bc2cf; font-size: 1rem"), console.log("%c	If you like the cheats star the github repo!%c  https://github.com/NotCalebm/Blooket-cheats", "color: #ffd000; font-size: 1rem", ""), document.querySelector("script[src*='bfs/index.js']") && !window.clearId) {
         for (var e, t, a, o, r, i, n, s, e = document.createElement("iframe"), t = (document.body.appendChild(e), window.clearId = window.setInterval(() => {}, 0)); t--;) e.contentWindow.clearInterval.call(window, t);
         e.remove()
     }
@@ -290,7 +290,7 @@
             display: "flex",
             flexDirection: "column"
         },
-        innerHTML: '<span style="text-shadow: 1px 1px rgb(0 0 0 / 40%); font-size: 0.8em;">Cheats<sup>v1.3.5</sup></span>'
+        innerHTML: '<span style="text-shadow: 1px 1px rgb(0 0 0 / 40%); font-size: 0.8em;">Cheats<sup>v3.0</sup></span>'
     }, l("a", {
         className: "bigButton",
         style: {
@@ -6732,33 +6732,42 @@
 
                     const creditsList = [{
                         name: "Version 3.0",
-                        description: "12/13/24"
+                        description: "12/18/24"
                     },{
                         name: "ADDED",
-                        description: "Added experimental cheats category [SOME OF THESE CAN BE RISKY | experimental]"
+                        description: " "
                     }, {
-                            name: "Added Experimental Cheats",
-                            description: "Added experimental cheats category [SOME OF THESE CAN BE RISKY | experimental]"
+                            name: " ",
+                            description: "Added Experimental Cheats: Experimental cheats category [SOME OF THESE CAN BE RISKY | experimental]"
                         }, {
-                            name: "Added Experimental Anti RPC Ban",
-                            description: "Added an experiment that should prevent Remote Procedure Call Bans [experimental]"
+                            name: " ",
+                            description: "Added Experimental Anti RPC Ban: Experiment that should prevent Remote Procedure Call Bans [experimental]"
                         }, {
-                            name: "Added Fake Pack Unlock",
-                            description: "Simulates you unlocking a pack but isnt real [global]"
+                            name: " ",
+                            description: "Added Fake Pack Unlock: Simulates unlocking a pack [global]"
                         }, {
-                            name: "Added Destroy All",
-                            description: "Destroys the game lol [global]"
+                            name: " ",
+                            description: "Added Destroy All: Destroys the game lol [global]"
+                        }, {
+                            name: " ",
+                            description: "Added Investigate ESP [Dinos]"
                         },
                          {
                             name: "FIXED/CHANGED",
-                            description: "Marked freeze host as buggy"
+                            description: " "
                           },
                           {
-                            name: "Enhanced Anti Ban",
-                            description: "Anti Ban is now more powerful"
+                            name: " ",
+                            description: "Enhanced Anti Ban: Anti Ban is now more powerful"
+                          }, {
+                            name: " ",
+                            description: "Changed Freeze host name to Freeze Host [buggy]"
                           },
                             {
                                 name: "REMOVED",
+                                description: " "
+                              }, {
+                                name: " ",
                                 description: "Pin Guesser [Patched]"
                               },
                     ];
