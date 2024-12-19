@@ -2053,7 +2053,7 @@
                 }
             }
         }, {
-            name: "Crash Host (Pirate)",
+            name: "Crash All (Pirate)",
             description: "Crashes the Host's Game for Pirate's Voyage",
             run: function() {
                 function reactHandler() {
@@ -2399,7 +2399,7 @@
                 Object.values(document.querySelector("#app > div > div"))[1].children[0]._owner.stateNode.game.current.scene.scenes[0].game.events._events.respawn.fn()
             }
         }, {
-            name: "Crash Host (Brawl)",
+            name: "Crash All (Brawl)",
             description: "Crashes the Host's Game for Monster Brawl",
             run: function() {
                 function reactHandler() {
@@ -2834,7 +2834,7 @@
                 })
             }
         }, {
-            name: "Crash Host (Crypto)",
+            name: "Crash All (Crypto)",
             description: "Crashes the Host's Game for Crypto Hack",
             run: function() {
                 function reactHandler() {
@@ -3161,7 +3161,7 @@
                 e.game.current.scene.scenes[0].enemyQueue.length = 0, e.game.current.scene.scenes[0].physics.world.bodies.entries.forEach(e => e?.gameObject?.receiveDamage?.(e.gameObject.hp, 1))
             }
         }, {
-            name: "Crash Host (Defense 2)",
+            name: "Crash All (Defense 2)",
             description: "Crashes the Host's Game for Tower Defense 2 (May take a few tries)",
             run: function() {
                 function reactHandler() {
@@ -3470,7 +3470,7 @@
                 })
             }
         }, {
-            name: "Crash Host (Dino)",
+            name: "Crash All (Dino)",
             description: "Crashes the Host's Game for Deceptive Dinos",
             run: function() {
                 function reactHandler() {
@@ -5251,7 +5251,7 @@
                 })
             }
         }, {
-            name: "Crash Host (Gold)",
+            name: "Crash All (Gold)",
             description: "Crashes the Host's Game for Gold Quest",
             run: function() {
                 function reactHandler() {
